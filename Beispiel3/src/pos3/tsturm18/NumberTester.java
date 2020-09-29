@@ -51,19 +51,46 @@ public class NumberTester {
             String zeile = "";
             zeile = br.readLine();
             int zeilenZahl = Integer.parseInt(zeile);
-            setOddEvenTester( (i) -> (i%2) == 1 );
-            
+            setOddEvenTester( number -> (number%2) == 1 );
+            setPrimeTester(number -> {
+            PrimeTesting primeTesting =new PrimeTesting();
+            return primeTesting.isPrime(number);
+            });
+            setPalindromeTester(number -> {
+            String original = Integer.toString(number);
+            String reverseString = "";
+                for (int i = original.length()-1; i >= 0; i--) {
+                    reverseString+=original.charAt(i);
+                }
+            if(reverseString.equals(original)){
+                return true;
+            }else{
+                return false;
+            }
+            });
             do
             {
                 zeile=br.readLine();
                 String[] s = zeile.split(" ");
                 if(s.length==2){
                     switch (Integer.parseInt(s[0])){
-                        case 1:
+                        case 1: if(oddTester.testNumber(Integer.parseInt(s[1]))){
+                            System.out.println("ODD");
+                        }else{
+                            System.out.println("EVEN");
+                        }
                             break;
-                        case 2:
+                        case 2:if(primeTester.testNumber(Integer.parseInt(s[1]))){
+                            System.out.println("PRIME");
+                        }else{
+                            System.out.println("NO PRIME");
+                        }
                             break;
-                        case 3:
+                        case 3:if(palindromeTester.testNumber(Integer.parseInt(s[1]))){
+                            System.out.println("PALINDROME");
+                        }else{
+                            System.out.println("NO PALINDROME");
+                        }
                             break;
                         default: System.out.println("Keine Akzeptierte Zahl");
                     }
