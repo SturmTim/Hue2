@@ -23,6 +23,10 @@ public class NumberTester {
     NumberTest oddTester;
     NumberTest primeTester;
     NumberTest palindromeTester;
+    public static void main(String[] args) {
+        NumberTester nt =new NumberTester("seas.txt");
+        nt.testFile();
+    }
 
     public NumberTester(String pfad) {
         this.pfad = pfad;
@@ -68,9 +72,14 @@ public class NumberTester {
                 return false;
             }
             });
-            do
-            {
                 zeile=br.readLine();
+            while (zeile != null)
+            {
+                zeilenZahl--;
+                if(zeilenZahl<0){
+                    System.out.println("Zu viele Zeilen");
+                    break;
+                }
                 String[] s = zeile.split(" ");
                 if(s.length==2){
                     switch (Integer.parseInt(s[0])){
@@ -98,8 +107,12 @@ public class NumberTester {
                 else{
                     System.out.println("Nich genügend Zahlen in dieser Zeile");
                 }
+                zeile=br.readLine();
             }
-            while (zeile != null);
+            if(zeilenZahl>0){
+                System.out.println("Zu wenig Zeilen");
+            }
+            
             
             
         } catch (FileNotFoundException ex) {
