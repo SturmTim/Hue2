@@ -7,6 +7,7 @@ package po3.tsturm18;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  *
@@ -15,6 +16,11 @@ import java.util.List;
 public class HalloJavamitForEach {
     
     List<String> l ;
+    
+    public static void main(String[] args) {
+        HalloJavamitForEach h =new HalloJavamitForEach();
+        h.print();
+    }
 
     public HalloJavamitForEach() {
         l=new ArrayList<>();
@@ -27,13 +33,17 @@ public class HalloJavamitForEach {
         for (String string : l) {
             System.out.println(string);
         }
-    }
-    
-    public void printMethode(){
+        
         l.forEach((string) -> {
             System.out.println(string);
         });
+        
+        l.forEach(System.out::println);
+        
+        Consumer<String> consumer = (String s) -> System.out.println(s);
+        l.forEach(consumer);
     }
+    
     
     
     
