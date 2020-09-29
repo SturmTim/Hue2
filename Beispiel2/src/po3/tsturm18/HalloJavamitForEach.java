@@ -5,10 +5,33 @@
  */
 package po3.tsturm18;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author tsturm18
  */
 public class HalloJavamitForEach {
     
+    List<String> l ;
+
+    public HalloJavamitForEach() {
+        l=new ArrayList<>();
+        l.add("seas");
+        l.add("seas2");
+        l.add("seas3");
+    }
+    
+    public void print(){
+        for (String string : l) {
+            System.out.println(string);
+        }
+    }
+    
+    
+    
 }
+    
+    
+
