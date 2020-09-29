@@ -29,6 +29,14 @@ public class HalloJavamitForEach {
         }
     }
     
+    public void printMethode(){
+        l.forEach((string) -> {
+            System.out.println(string);
+        });
+    }
+    
+    
+    
     
     
 }
