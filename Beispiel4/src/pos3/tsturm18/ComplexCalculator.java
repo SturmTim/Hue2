@@ -11,28 +11,50 @@ package pos3.tsturm18;
  */
 public class ComplexCalculator extends AbstractCalculator {
 
-    public ComplexCalculator(CalculateOperation add, CalculateOperation subtract, CalculateOperation multiply, CalculateOperation divide) {
-        super(add, subtract, multiply, divide);
+    public ComplexCalculator() {
+        super(
+                (x, y) -> {
+                    Number loesung = new Number();
+                    loesung.setA(x.getA() + y.getA());
+                    loesung.setB(x.getB() + y.getB());
+                    return loesung;
+                },
+                (x, y) -> {
+                    Number loesung = new Number();
+                    loesung.setA(x.getA() - y.getA());
+                    loesung.setB(x.getB() - y.getB());
+                    return loesung;
+                },
+                (x, y) -> {
+                    Number loesung = new Number();
+                    loesung.setA(x.getA() * y.getA() + x.getB() * y.getB());
+                    loesung.setB(x.getA() * y.getB() + x.getB() * y.getA());
+                    return loesung;
+                },
+                (x, y) -> {
+                    Number loesung = new Number();
+                    return loesung;
+                });
     }
 
     @Override
     public Number add(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return add.calc(a, b);
     }
 
     @Override
     public Number subtract(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return subtract.calc(a, b);
     }
 
     @Override
     public Number multiply(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return multiply.calc(a, b);
     }
 
     @Override
     public Number divide(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return divide.calc(a, b);
     }
 
 }
