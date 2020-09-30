@@ -15,7 +15,7 @@ import java.util.function.Consumer;
  */
 public class HalloJavamitForEach {
     
-    List<String> l ;
+    List<String> testList ;
     
     public static void main(String[] args) {
         HalloJavamitForEach h =new HalloJavamitForEach();
@@ -23,25 +23,25 @@ public class HalloJavamitForEach {
     }
 
     public HalloJavamitForEach() {
-        l=new ArrayList<>();
-        l.add("seas");
-        l.add("seas2");
-        l.add("seas3");
+        testList=new ArrayList<>();
+        testList.add("seas");
+        testList.add("seas2");
+        testList.add("seas3");
     }
     
     public void print(){
-        for (String string : l) {
+        for (String string : testList) {
             System.out.println(string);
         }
         
-        l.forEach((string) -> {
+        testList.forEach((string) -> {
             System.out.println(string);
         });
         
-        l.forEach(System.out::println);
+        testList.forEach(System.out::println);
         
         Consumer<String> consumer = (String s) -> System.out.println(s);
-        l.forEach(consumer);
+        testList.forEach(consumer);
     }
     
     

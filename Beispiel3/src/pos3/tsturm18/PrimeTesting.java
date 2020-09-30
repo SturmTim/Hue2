@@ -13,25 +13,25 @@ import java.util.List;
  * @author tsturm18
  */
 public class PrimeTesting {
+
     List<Integer> isprime = new ArrayList<>();
     List<Integer> notprime = new ArrayList<>();
 
     public PrimeTesting() {
     }
-    
-    
-    public boolean isPrime(int p) {
+
+    public boolean isPrime(int number) {
         notprime.add(1);
-        for (int i = 2; i <= p; i++) {
+        for (int i = 2; i <= number; i++) {
             if (!notprime.contains(i) == false) {
                 notprime.add(i);
             } else {
                 isprime.add(i);
-                for (int j = i * i; j <= p; j = j + i) {
+                for (int j = i * i; j <= number; j = j + i) {
                     notprime.add(j);
                 }
             }
         }
-        return !notprime.contains(p);
+        return isprime.contains(number);
     }
 }
