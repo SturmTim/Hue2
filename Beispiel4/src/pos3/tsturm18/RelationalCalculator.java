@@ -11,28 +11,70 @@ package pos3.tsturm18;
  */
 public class RelationalCalculator extends AbstractCalculator {
 
-    public RelationalCalculator(CalculateOperation add, CalculateOperation subtract, CalculateOperation multiply, CalculateOperation divide) {
-        super(add, subtract, multiply, divide);
+    public RelationalCalculator() {
+        super(
+                (x, y) -> {
+                    Number loesung = new Number();
+                    double a;
+                    double b;
+                    if (x.getB() != y.getB()) {
+                        a = x.getA() * y.getB() + y.getA() * x.getB();
+                        b = x.getB() * y.getB();
+                    } else {
+                        a = x.getA() + y.getA();
+                        b = x.getB();
+                    }
+                    loesung.setA(a);
+                    loesung.setB(b);
+                    return loesung;
+                },
+                (x, y) -> {
+                    Number loesung = new Number();
+                    double a;
+                    double b;
+                    if (x.getB() != y.getB()) {
+                        a = x.getA() * y.getB() - y.getA() * x.getB();
+                        b = x.getB() * y.getB();
+                    } else {
+                        a = x.getA() - y.getA();
+                        b = x.getB();
+                    }
+                    loesung.setA(a);
+                    loesung.setB(b);
+                    return loesung;
+                },
+                (x, y) -> {
+                    Number loesung = new Number();
+                    loesung.setA(x.getA() * y.getA());
+                    loesung.setB(x.getB() * y.getB());
+                    return loesung;
+                },
+                (x, y) -> {
+                    Number loesung = new Number();
+                    loesung.setA(x.getA() * y.getB());
+                    loesung.setB(x.getB() * y.getA());
+                    return loesung;
+                });
     }
 
     @Override
     public Number add(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return add.calc(a, b);
     }
 
     @Override
     public Number subtract(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return subtract.calc(a, b);
     }
 
     @Override
     public Number multiply(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return multiply.calc(a, b);
     }
 
     @Override
     public Number divide(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return divide.calc(a, b);
     }
 
 }

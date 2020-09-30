@@ -12,25 +12,29 @@ package pos3.tsturm18;
 public class VectorCalculator extends AbstractCalculator {
 
     public VectorCalculator() {
-        super((x, y) -> {
-            Number solution = new Number();
-            solution.setA(x.getA() + y.getA());
-            solution.setB(x.getB() + y.getB());
-            return solution;
-        }, (x, y) -> {
-            Number solution = new Number();
-            solution.setA(x.getA() - y.getA());
-            solution.setB(x.getB() - y.getB());
-            return solution;
-        }, (x, y) -> {
-            Number solution = new Number();
-            solution.setA(x.getA() * y.getB() - y.getA() * x.getB());
-            return solution;
-        }, (x, y) -> {
-            Number solution = new Number();
-            solution.setA(x.getA() * y.getA() + x.getB() * y.getB());
-            return solution;
-        });
+        super(
+                (x, y) -> {
+                    Number loesung = new Number();
+                    loesung.setA(x.getA() + y.getA());
+                    loesung.setB(x.getB() + y.getB());
+                    return loesung;
+                },
+                (x, y) -> {
+                    Number loesung = new Number();
+                    loesung.setA(x.getA() - y.getA());
+                    loesung.setB(x.getB() - y.getB());
+                    return loesung;
+                },
+                (x, y) -> {
+                    Number loesung = new Number();
+                    loesung.setA(x.getA() * y.getB() - y.getA() * x.getB());
+                    return loesung;
+                },
+                (x, y) -> {
+                    Number loesung = new Number();
+                    loesung.setA(x.getA() * y.getA() + x.getB() * y.getB());
+                    return loesung;
+                });
     }
 
     @Override
