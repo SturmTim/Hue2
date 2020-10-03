@@ -33,6 +33,9 @@ public class ComplexCalculator extends AbstractCalculator {
                 },
                 (x, y) -> {
                     Number loesung = new Number();
+                    double dividieren = Math.pow(y.getA(), 2) + Math.pow(y.getB(), 2);
+                    loesung.setA((x.getA() * y.getA() + x.getB() * y.getB()) / dividieren);
+                    loesung.setB((x.getB() * y.getA() - x.getA() * y.getB()) / dividieren);
                     return loesung;
                 });
     }
